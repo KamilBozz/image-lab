@@ -1,3 +1,4 @@
+// TEST COMMENT
 const fs = require("fs").promises;
 const { createReadStream, createWriteStream } = require("fs");
 const PNG = require("pngjs").PNG;
