@@ -1,9 +1,11 @@
-// TEST COMMENT
 const fsPromises = require("fs").promises;
 const fs = require("fs");
 const { createReadStream, createWriteStream } = require("fs");
 const PNG = require("pngjs").PNG;
 const path = require("path");
+
+
+
 
 /**
  * Description: decompress file from given pathIn, write to given pathOut
@@ -12,8 +14,9 @@ const path = require("path");
  * @param {string} pathOut
  * @return {promise}
  */
-const inputPath = path.join(__dirname, 'myfile.zip');
-const outputPath = path.join(__dirname, 'unzipped');
+
+// const inputPath = path.join(__dirname, 'myfile.zip');
+// const outputPath = path.join(__dirname, 'unzipped');
 
 const unzip = async (pathIn, pathOut) => {
   const yauzl = require('yauzl-promise'),
@@ -41,6 +44,10 @@ try {
 
 // unzip(inputPath, outputPath);
 
+
+
+
+
 /**
  * Description: read all the png files from given directory and return Promise containing array of each png file path
  *
@@ -50,7 +57,6 @@ try {
 
 
 const unzipPath = path.join(__dirname, 'unzipped');
-
 
 const readDir = async (dir) => {
   let pngArr = [];
@@ -68,11 +74,11 @@ const readDir = async (dir) => {
     console.log(err);
   }
 };
-readDir()
+// readDir()
 
-// function grayscaleImage(pixelData) {
 
-// }
+
+
 
 /**
  * Description: Read in png file by given pathIn,
@@ -108,7 +114,7 @@ const grayScale = (pathIn, pathOut) => {
         // this.data[idx + 2] = gray;
 
 
-        applyGrayScale(this.data, idx);
+        grayscaleImage(this.data, idx);
       }
     }
 
@@ -117,7 +123,7 @@ const grayScale = (pathIn, pathOut) => {
 };
 
 
-const applyGrayScale = (pixelData, idx) => {
+const grayscaleImage = (pixelData, idx) => {
   const red = pixelData[idx];
   const green = pixelData[idx + 1];
   const blue = pixelData[idx + 2];
